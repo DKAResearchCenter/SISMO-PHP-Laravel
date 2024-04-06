@@ -41,12 +41,12 @@
             <!-- Page Header -->
             <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
                 <div class="my-auto">
-                    <h5 class="page-title fs-21 mb-1">Edit Data Akun</h5>
+                    <h5 class="page-title fs-21 mb-1">Buat Data Akun</h5>
                     <nav>
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item"><a href="javascript:void(0);">Pengaturan</a></li>
                             <li class="breadcrumb-item" aria-current="page">Managemen Akun</li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit Data</li>
+                            <li class="breadcrumb-item active" aria-current="page">Buat Data Baru</li>
                         </ol>
                     </nav>
                 </div>
@@ -74,13 +74,17 @@
                                 @csrf
                                 <input name="id" style="display: none">
                                 <div class="row">
-                                    <div class="col-6 mb-3">
+                                    <div class="col-3 mb-3">
                                         <label for="form-text" class="form-label fs-14 text-dark">Nama Lengkap <b style="color='red';">*</b></label>
-                                        <input type="text" name="nama" class="form-control" id="form-text" placeholder="">
+                                        <input type="text" name="name" class="form-control" id="form-text" placeholder="">
                                     </div>
-                                    <div class="col-6 mb-3">
+                                    <div class="col-3 mb-3">
                                         <label for="form-text" class="form-label fs-14 text-dark">Email Pengguna</label>
-                                        <input type="text" name="email" class="form-control" id="form-text" placeholder="">
+                                        <input type="email" name="email" class="form-control" id="form-text" placeholder="">
+                                    </div>
+                                    <div class="col-3 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Username</label>
+                                        <input type="text" name="username" class="form-control" id="form-text" placeholder="">
                                     </div>
                                 </div>
                                 <div class="row">
