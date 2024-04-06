@@ -74,10 +74,11 @@
                                 <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Kegiatan</th>
-                                    <th>Tanggal Kegiatan</th>
-                                    <th>Deskripsi</th>
-                                    <th>Anggaran</th>
+                                    <th>Program kerja</th>
+                                    <th>Waktu Pelaksanaan</th>
+                                    <th>Pelaksanaan</th>
+                                    <th>Kendala</th>
+                                    <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
                                 </thead>
@@ -85,10 +86,11 @@
                                 @foreach($pkbgt as $key => $data)
                                 <tr>
                                     <th>{{$data->id}}</th>
-                                    <th>{{$data->nama}}</th>
-                                    <th>{{$data->tanggal_agenda}}</th>
-                                    <th>{{$data->desc}}</th>
-                                    <th>{{$data->anggaran}}</th>
+                                    <th>{{$data->program_kerja}}</th>
+                                    <th>{{$data->waktu_pelaksanaan}}</th>
+                                    <th>{{$data->pelaksanaan}}</th>
+                                    <th>{{$data->kendala}}</th>
+                                    <th>{{$data->status}}</th>
                                     <td>
                                         <a href="PKBGT/edit?id={{$data->id}}" class="btn btn-primary btn-sm"><i class="mdi mdi-pencil"></i></a>
                                         &nbsp;

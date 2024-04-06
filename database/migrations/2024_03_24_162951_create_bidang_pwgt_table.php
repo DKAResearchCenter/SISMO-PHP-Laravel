@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('bidang_pwgt', function (Blueprint $table) {
             $table->increments("id");
-            $table->string("nama");
-            $table->string("desc");
-            $table->string("anggaran");
-            $table->date("tanggal_agenda");
+            $table->integer("id_user");
+            $table->string("program_kerja");
+            $table->date("waktu_pelaksanaan");
+            $table->string("pelaksanaan")->nullable();
+            $table->string("kendala")->nullable();
+            $table->enum("status", ["BELUM DI PERIKSA","DI PERIKSA","EVALUASI","PENDAMPINGAN"])->default("BELUM DI PERIKSA");
             $table->timestamps();
         });
     }

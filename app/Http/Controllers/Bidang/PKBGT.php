@@ -24,6 +24,13 @@ class PKBGT extends Controller
             case "POST" :
                 $requestData = $request->all();
                 unset($requestData['_token']);
+
+                $session = request()->session()->get("auth_login");
+                $requestData = array_merge($requestData, array(
+                    'id_user' => $session->id,
+                    'created_at' => date("Y-m-d H:i:s"),
+                ));
+
                 $updated = DB::table("bidang_pkbgt")
                     ->insert($requestData);
 
@@ -57,6 +64,13 @@ class PKBGT extends Controller
             case "POST" :
                 $requestData = $request->all();
                 unset($requestData['_token']);
+
+                $session = request()->session()->get("auth_login");
+                $requestData = array_merge($requestData, array(
+                    'id_user' => $session->id,
+                    'created_at' => date("Y-m-d H:i:s"),
+                ));
+
                 $updated = DB::table("bidang_pkbgt")
                     ->where('id',"=", $request->get("id"))
                     ->update($requestData);

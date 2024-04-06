@@ -75,21 +75,21 @@
                                 <div class="row">
                                     <div class="col-6 mb-3">
                                         <label for="form-text" class="form-label fs-14 text-dark">Nama Kegiatan<b style="color='red';">*</b></label>
-                                        <input type="text" name="nama" class="form-control" id="form-text" placeholder="">
+                                        <input type="text" name="program_kerja" class="form-control" id="form-text" placeholder="">
                                     </div>
                                     <div class="col-6 mb-3">
-                                        <label for="form-text" class="form-label fs-14 text-dark">Deskripsi<b style="color='red';">*</b></label>
-                                        <input type="text" name="desc" class="form-control" id="form-text" placeholder="">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Waktu Pelaksaan<b style="color='red';">*</b></label>
+                                        <input type="date" name="waktu_pelaksanaan" class="form-control" id="form-text" placeholder="">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6 mb-3">
-                                        <label for="form-text" class="form-label fs-14 text-dark">Anggaran</label>
-                                        <input type="number" name="anggaran" class="form-control" id="form-text" placeholder="">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Pelaksaan</label>
+                                        <input type="text" name="pelaksanaan" class="form-control" id="form-text" placeholder="">
                                     </div>
                                     <div class="col-6 mb-3">
-                                        <label for="form-text" class="form-label fs-14 text-dark">Tanggal Agenda</label>
-                                        <input type="date" name="tanggal_agenda" class="form-control" id="form-text" placeholder="">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Kendala</label>
+                                        <input type="text" name="kendala" class="form-control" id="form-text" placeholder="">
                                     </div>
                                 </div>
                                 <div class="row">

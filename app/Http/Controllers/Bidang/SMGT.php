@@ -24,6 +24,12 @@ class SMGT extends Controller
             case "POST" :
                 $requestData = $request->all();
                 unset($requestData['_token']);
+                $session = request()->session()->get("auth_login");
+                $requestData = array_merge($requestData, array(
+                    'id_user' => $session->id,
+                    'created_at' => date("Y-m-d H:i:s"),
+                ));
+
                 $updated = DB::table("bidang_smgt")
                     ->insert($requestData);
 
@@ -58,6 +64,12 @@ class SMGT extends Controller
 
                 $requestData = $request->all();
                 unset($requestData['_token']);
+                $session = request()->session()->get("auth_login");
+                $requestData = array_merge($requestData, array(
+                    'id_user' => $session->id,
+                    'created_at' => date("Y-m-d H:i:s"),
+                ));
+
                 $updated = DB::table("bidang_smgt")
                     ->where('id',"=", $request->get("id"))
                     ->update($requestData);
