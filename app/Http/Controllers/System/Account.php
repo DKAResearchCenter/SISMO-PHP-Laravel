@@ -11,11 +11,23 @@ class Account extends Controller
 {
     public function Index(Request $request){
 
-        $users_login = DB::table("users_login")->get();
-        return view("system.account.index",[
-            'users_login' => $users_login,
-            'session' => request()->session()->get("auth_login")
-        ]);
+        $session = request()->session()->get("auth_login");
+        if ($session->level_access === "ADMIN"){
+            $users_login = DB::table("users_login")->get();
+            return view("system.account.index",[
+                'users_login' => $users_login,
+                'session' => $session
+            ]);
+        }else{
+            $users_login = DB::table("users_login")->where(
+                "bidang", $session->bidang
+            )->get();
+            return view("system.account.index",[
+                'users_login' => $users_login,
+                'session' => $session
+            ]);
+        }
+
     }
 
     public function Create(Request $request){

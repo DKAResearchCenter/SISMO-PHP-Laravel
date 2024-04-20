@@ -41,11 +41,11 @@
             <!-- Page Header -->
             <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
                 <div class="my-auto">
-                    <h5 class="page-title fs-21 mb-1">Tambah Data Persekutuan Wanita Gereja Toraja (PWGT)</h5>
+                    <h5 class="page-title fs-21 mb-1">Edit Sekolah Minggu Gereja Toraja (SMGT)</h5>
                     <nav>
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item"><a href="javascript:void(0);">bidang</a></li>
-                            <li class="breadcrumb-item" aria-current="page">Persekutuan Wanita Gereja Toraja (PWGT)</li>
+                            <li class="breadcrumb-item" aria-current="page">Sekolah Minggu Gereja Toraja (SMGT)</li>
                             <li class="breadcrumb-item active" aria-current="page">Edit Data</li>
                         </ol>
                     </nav>
@@ -66,38 +66,39 @@
                     <div class="card custom-card">
                         <div class="card-header justify-content-between">
                             <div class="card-title">
-                                Buat Data Baru Persekutuan Wanita Gereja Toraja (PWGT),
+                                Edit Data {{ $bidang->program_kerja }}
                             </div>
                         </div>
                         <div class="card-body">
-                            <form method="post" action="./create">
+                            <form method="post" action="./edit">
                                 @csrf
+                                <input name="id" style="display: none" value="{{ $bidang->id }}">
                                 <div class="row">
                                     <div class="col-6 mb-3">
                                         <label for="form-text" class="form-label fs-14 text-dark">Nama Kegiatan<b style="color='red';">*</b></label>
-                                        <input type="text" name="program_kerja" class="form-control" id="form-text" placeholder="">
+                                        <input type="text" name="nama" class="form-control" id="form-text" placeholder="" value="{{$bidang->program_kerja}}">
                                     </div>
                                     <div class="col-6 mb-3">
-                                        <label for="form-text" class="form-label fs-14 text-dark">Waktu Pelaksaan<b style="color='red';">*</b></label>
-                                        <input type="date" name="waktu_pelaksanaan" class="form-control" id="form-text" placeholder="">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Waktu Pelaksanaan<b style="color='red';">*</b></label>
+                                        <input type="date" name="desc" class="form-control" id="form-text" placeholder="" value="{{$bidang->waktu_pelaksanaan}}">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6 mb-3">
-                                        <label for="form-text" class="form-label fs-14 text-dark">Pelaksaan</label>
-                                        <input type="text" name="pelaksanaan" class="form-control" id="form-text" placeholder="">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Pelaksanaan</label>
+                                        <input type="text" name="anggaran" class="form-control" id="form-text" placeholder="" value="{{$bidang->pelaksanaan}}">
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label for="form-text" class="form-label fs-14 text-dark">Kendala</label>
-                                        <input type="text" name="kendala" class="form-control" id="form-text" placeholder="">
+                                        <input type="text" name="tanggal_agenda" class="form-control" id="form-text" placeholder="" value="{{$bidang->kendala}}">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6 mb-3">
                                     </div>
                                     <div class="col-6 mb-3 text-end">
-                                        <a href="../PWGT" class="btn btn-lg btn-danger-gradient mb-3">Batalkan</a>
-                                        <button type="submit" class="btn btn-lg btn-success-gradient mb-3">Tambah</button>
+                                        <a href="SMGT" class="btn btn-lg btn-danger-gradient mb-3">Batalkan</a>
+                                        <button type="submit" class="btn btn-lg btn-success-gradient mb-3">Ubah</button>
                                     </div>
                                 </div>
                             </form>
@@ -177,10 +178,6 @@
 <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.6/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
 <!-- Internal Datatables JS -->
 <script src="/assets/js/datatables.js"></script>

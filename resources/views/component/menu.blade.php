@@ -25,31 +25,21 @@
             <!-- End::slide__category -->
 
             <!-- Start::slide -->
-            <li class="slide has-sub {{ (request()->is('bidang/*')) ? 'open' : '' }}">
-                <a href="javascript:void(0);" class="side-menu__item">
+            <li class="slide">
+                <a href="/bidang" class="side-menu__item">
                     <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 9h14V5H5v4zm2-3.5c.83 0 1.5.67 1.5 1.5S7.83 8.5 7 8.5 5.5 7.83 5.5 7 6.17 5.5 7 5.5zM5 19h14v-4H5v4zm2-3.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5z" opacity=".3"/><path d="M20 13H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-6c0-.55-.45-1-1-1zm-1 6H5v-4h14v4zm-12-.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zM20 3H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zm-1 6H5V5h14v4zM7 8.5c.83 0 1.5-.67 1.5-1.5S7.83 5.5 7 5.5 5.5 6.17 5.5 7 6.17 8.5 7 8.5z"/></svg>
-                    <span class="side-menu__label">bidang</span>
-                    <i class="fe fe-chevron-right side-menu__angle"></i>
+                    <span class="side-menu__label">Bidang</span>
                 </a>
-                <ul class="slide-menu child1">
-                    <li class="slide side-menu__label1">
-                        <a href="javascript:void(0);">bidang</a>
-                    </li>
-                    <li class="slide">
-                        <a href="/bidang/SMGT" class="side-menu__item {{ (request()->is('bidang/SMGT')) ? 'active' : '' }}">SMGT</a>
-                    </li>
-                    <li class="slide">
-                        <a href="/bidang/PPGT" class="side-menu__item {{ (request()->is('bidang/PPGT')) ? 'active' : '' }}{{ (request()->is('bidang/PPGT/*')) ? 'active' : '' }}">PPGT</a>
-                    </li>
-                    <li class="slide">
-                        <a href="/bidang/PWGT" class="side-menu__item {{ (request()->is('bidang/PWGT')) ? 'active' : '' }}">PWGT</a>
-                    </li>
-                    <li class="slide">
-                        <a href="/bidang/PKBGT" class="side-menu__item {{ (request()->is('bidang/PKBGT')) ? 'active' : '' }}{{ (request()->is('bidang/PKBGT/*')) ? 'active' : '' }}">PKBGT</a>
-                    </li>
-                </ul>
             </li>
             <!-- End::slide -->
+
+            <li class="slide">
+                <a href="javascript:void(0);" class="side-menu__item">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 9h14V5H5v4zm2-3.5c.83 0 1.5.67 1.5 1.5S7.83 8.5 7 8.5 5.5 7.83 5.5 7 6.17 5.5 7 5.5zM5 19h14v-4H5v4zm2-3.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5z" opacity=".3"/><path d="M20 13H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-6c0-.55-.45-1-1-1zm-1 6H5v-4h14v4zm-12-.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zM20 3H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zm-1 6H5V5h14v4zM7 8.5c.83 0 1.5-.67 1.5-1.5S7.83 5.5 7 5.5 5.5 6.17 5.5 7 6.17 8.5 7 8.5z"/></svg>
+                    <span class="side-menu__label">Anggaran</span>
+                    <i class="fe fe-chevron-right side-menu__angle"></i>
+                </a>
+            </li>
 
             <!-- Start::slide__category -->
             <li class="slide__category"><span class="category-name">Pengaturan</span></li>

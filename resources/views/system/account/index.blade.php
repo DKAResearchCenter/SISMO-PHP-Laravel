@@ -76,6 +76,7 @@
                                     <th>ID</th>
                                     <th>Nama Lengkap</th>
                                     <th>Email</th>
+                                    <th>Akses</th>
                                     <th>Tanggal Dibuat</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -86,6 +87,7 @@
                                     <th>{{$data->id}}</th>
                                     <th>{{$data->name}}</th>
                                     <th>{{$data->email}}</th>
+                                    <th>{{($data->level_access === "ADMIN") ? "Admin" : $data->bidang }}</th>
                                     <th>{{$data->created_at}}</th>
                                     <td>
                                         <a href="account/edit?id={{$data->id}}" class="btn btn-primary btn-sm"><i class="mdi mdi-pencil"></i></a>

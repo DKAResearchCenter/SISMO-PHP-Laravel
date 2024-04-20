@@ -41,7 +41,7 @@
             <!-- Page Header -->
             <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
                 <div class="my-auto">
-                    <h5 class="page-title fs-21 mb-1">Persekutuan Wanita Gereja Toraja (PWGT)</h5>
+                    <h5 class="page-title fs-21 mb-1">{{$title}}</h5>
                     <nav>
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item"><a href="javascript:void(0);">Layanan</a></li>
@@ -61,12 +61,12 @@
             <!-- Start:: row-3 -->
             <div class="row">
                 <div class="col-xl-12">
-                    <a href="PWGT/create" class="btn btn-lg btn-primary-gradient mb-3">Tambahkan Data Baru</a>
+                    <a href="/bidang/create" class="btn btn-lg btn-primary-gradient mb-3">Tambahkan Data Baru</a>
                     <div class="card custom-card">
                         <div class="card-header">
 
                             <div class="card-title">
-                                Persekutuan Wanita Gereja Toraja (PWGT)
+                                {{$title}}
                             </div>
                         </div>
                         <div class="card-body">
@@ -78,24 +78,32 @@
                                     <th>Waktu Pelaksanaan</th>
                                     <th>Pelaksanaan</th>
                                     <th>Kendala</th>
+                                    <th>Bidang</th>
                                     <th>Status</th>
-                                    <th>Aksi</th>
+                                    @if($session->level_access =="ADMIN")
+                                        <th>Aksi</th>
+                                    @endif
+
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($pwgt as $key => $data)
+                                @foreach($bidang as $key => $data)
                                 <tr>
                                     <th>{{$data->id}}</th>
                                     <th>{{$data->program_kerja}}</th>
                                     <th>{{$data->waktu_pelaksanaan}}</th>
                                     <th>{{$data->pelaksanaan}}</th>
                                     <th>{{$data->kendala}}</th>
+                                    <th>{{$data->bidang}}</th>
                                     <th>{{$data->status}}</th>
+                                    @if($session->level_access =="ADMIN")
                                     <td>
-                                        <a href="PWGT/edit?id={{$data->id}}" class="btn btn-primary btn-sm"><i class="mdi mdi-pencil"></i></a>
+                                        <a href="/bidang/edit?id={{$data->id}}" class="btn btn-primary btn-sm"><i class="mdi mdi-pencil"></i></a>
                                         &nbsp;
                                         <div class="btn btn-danger btn-sm edit"><span class="id_data" style="display: none">{{$data->id}}</span><i class="mdi mdi-delete"></i></div>
                                     </td>
+                                    @endif
+
                                 </tr>
                                 @endforeach
                                 </tbody>

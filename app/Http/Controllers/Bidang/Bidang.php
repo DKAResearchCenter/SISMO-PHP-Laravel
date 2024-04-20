@@ -2,19 +2,32 @@
 
 namespace App\Http\Controllers\Bidang;
 
-use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 
-class PWGT extends Controller
+class Bidang extends Controller
 {
     public function Index(){
 
-        $pwgt = DB::table("bidang_pwgt")->get();
-        return view("bidang.PWGT.index", [
-            'pwgt' => $pwgt,
-            'session' => request()->session()->get("auth_login")
-        ]);
+        $session = request()->session()->get("auth_login");
+        if ($session->level_access === "ADMIN"){
+            $bidang = DB::table("bidang")->get();
+            return view("bidang.index", [
+                'bidang' => $bidang,
+                'session' => request()->session()->get("auth_login"),
+                'title' => 'Data Program Kerja'
+            ]);
+        }else{
+            $bidang = DB::table("bidang")->where(
+                "bidang", $session->bidang
+            )->get();
+            return view("bidang.index", [
+                'bidang' => $bidang,
+                'session' => request()->session()->get("auth_login"),
+                'title' => "Data Program Kerja ".$session->bidang
+            ]);
+        }
     }
 
     public function Create(Request $request){
@@ -24,18 +37,17 @@ class PWGT extends Controller
             case "POST" :
                 $requestData = $request->all();
                 unset($requestData['_token']);
-
                 $session = request()->session()->get("auth_login");
                 $requestData = array_merge($requestData, array(
                     'id_user' => $session->id,
                     'created_at' => date("Y-m-d H:i:s"),
                 ));
 
-                $updated = DB::table("bidang_pwgt")
+                $updated = DB::table("bidang")
                     ->insert($requestData);
 
                 if ($updated == 1){
-                    return redirect("/bidang/PWGT")
+                    return redirect("/bidang")
                         ->with("status", array(
                             'status' => true,
                             'code' => 200,
@@ -51,7 +63,7 @@ class PWGT extends Controller
                         ));
                 }
             default :
-                return view("bidang.PWGT.create",[
+                return view("bidang.create",[
                     'session' => request()->session()->get("auth_login"),
                     'status' => session()->has("status") ? session()->get("status") : null
                 ]);
@@ -62,6 +74,7 @@ class PWGT extends Controller
         $method = request()->method();
         switch ($method){
             case "POST" :
+
                 $requestData = $request->all();
                 unset($requestData['_token']);
                 $session = request()->session()->get("auth_login");
@@ -70,33 +83,34 @@ class PWGT extends Controller
                     'created_at' => date("Y-m-d H:i:s"),
                 ));
 
-                $updated = DB::table("bidang_pwgt")
+                $updated = DB::table("bidang")
                     ->where('id',"=", $request->get("id"))
                     ->update($requestData);
 
                 if ($updated === 1){
-                    return redirect("/bidang/PWGT")
+                    return redirect("/bidang")
                         ->with("status", array(
                             'status' => true,
                             'code' => 200,
                             'msg' => "Berhasil Mengupdate data"
                         ));
                 }else{
+                    //return response()->json($requestAll);
                     return redirect()
                         ->back()
                         ->with("status", array(
                             'status' => false,
                             'code' => 400,
-                            'msg' => "Gagal Mengupdate data atau data tidak berubah"
+                            'msg' => "Gagal mengupdate Data"
                         ));
                 }
             default :
                 if ($request->has('id')) {
                     $id = $request->input('id');
-                    $usaha = DB::table("bidang_pwgt")->where('id',"=",$id)->first();
-                    if (!is_null($usaha)){
-                        return response()->view("bidang.PWGT.edit",[
-                            'PWGT' => $usaha,
+                    $bidang = DB::table("bidang")->where('id',"=",$id)->first();
+                    if (!is_null($bidang)){
+                        return response()->view("bidang.edit",[
+                            'bidang' => $bidang,
                             'session' => request()->session()->get("auth_login"),
                             'status' => session()->has("status") ? session()->get("status") : null
                         ]);
@@ -112,7 +126,7 @@ class PWGT extends Controller
     public function Delete(Request $request){
         if ($request->has("id")){
             $idData = $request->input("id");
-            $deletedAction = DB::table("bidang_pwgt")->delete($idData);
+            $deletedAction = DB::table("bidang")->delete($idData);
             if ($deletedAction !== null){
                 return response()->json(
                     array(

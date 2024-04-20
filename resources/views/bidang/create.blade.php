@@ -41,12 +41,12 @@
             <!-- Page Header -->
             <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
                 <div class="my-auto">
-                    <h5 class="page-title fs-21 mb-1">Tambah Data Persekutuan Kaum Bapak Gereja Toraja (PKBGT).</h5>
+                    <h5 class="page-title fs-21 mb-1">Tambah Data {{$session->bidang}}</h5>
                     <nav>
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item"><a href="javascript:void(0);">Bidang</a></li>
-                            <li class="breadcrumb-item" aria-current="page">Persekutuan Kaum Bapak Gereja Toraja (PKBGT).</li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit Data</li>
+                            <li class="breadcrumb-item" aria-current="page">{{$session->bidang}}</li>
+                            <li class="breadcrumb-item active" aria-current="page">Tambah Data</li>
                         </ol>
                     </nav>
                 </div>
@@ -96,7 +96,7 @@
                                     <div class="col-6 mb-3">
                                     </div>
                                     <div class="col-6 mb-3 text-end">
-                                        <a href="../PWGT" class="btn btn-lg btn-danger-gradient mb-3">Batalkan</a>
+                                        <a href="/" class="btn btn-lg btn-danger-gradient mb-3">Batalkan</a>
                                         <button type="submit" class="btn btn-lg btn-success-gradient mb-3">Tambah</button>
                                     </div>
                                 </div>
